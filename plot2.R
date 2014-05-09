@@ -1,4 +1,4 @@
-plot1 <- function(){
+plot2 <- function(){
     # Read the data.
     powerData <- read.csv("household_power_consumption.txt", header = TRUE, sep=";", na.strings = "?")
     
@@ -16,10 +16,11 @@ plot1 <- function(){
     # Plotting.
     par(mfrow=c(1,1))
     
-    hist(subData$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
+    plot(subData$Timestamp, subData$Global_active_power, type="n", ylab="Global Active Power (kilowatts)", xlab="")
+    lines(subData$Timestamp, subData$Global_active_power, lty=1)
     
     # Printing The PNG File with specific width and height
-    dev.copy(png, "plot1.png", width=480, height=480)
+    dev.copy(png, "plot2.png", width=480, height=480)
     dev.off()
     
     
